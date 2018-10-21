@@ -33,6 +33,10 @@ $(function() {
          */
          it('All elements in allFeeds array have URL',function(){
            let urlContext= true;
+           /** Check all elements in loop.
+           *   if even one elements not defined or empty
+           *   variable urlContext turn to false **/
+           
            for (let i = 0; i < allFeeds.length; i++){
              if (!allFeeds[i].url) {
                urlContext = false;
