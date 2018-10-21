@@ -31,7 +31,16 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-      
+         it('All elements in allFeeds array have URL',function(){
+           let urlContext= true;
+           for (let i = 0; i < allFeeds.length; i++){
+             if (!allFeeds[i].url) {
+               urlContext = false;
+             }
+             expect(urlContext).toBe(true);
+           }
+         })
+
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
