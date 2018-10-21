@@ -34,22 +34,38 @@ $(function() {
          it('All elements in allFeeds array have URL',function(){
            let urlContext= true;
            /** Check all elements in loop.
-           *   if even one elements not defined or empty
+           *   if even one url propeties in elements not defined or empty
            *   variable urlContext turn to false **/
-           
+
            for (let i = 0; i < allFeeds.length; i++){
              if (!allFeeds[i].url) {
                urlContext = false;
              }
              expect(urlContext).toBe(true);
            }
-         })
+         });
 
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+
+         it('All elements in allFeeds array have Name',function(){
+           let nameContext= true;
+           /** Check all elements in loop.
+           *   if even one name properties in elements not defined or empty
+           *   variable nameContext turn to false **/
+
+           for (let i = 0; i < allFeeds.length; i++){
+             if (!allFeeds[i].name) {
+               nameContext = false;
+             }
+             expect(nameContext).toBe(true);
+           }
+         });
+
+
     });
 
 
