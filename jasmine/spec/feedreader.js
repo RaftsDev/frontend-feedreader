@@ -85,13 +85,22 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-    it('Checking toggle on menu.', function() {
+    it('Checking toggle on menu through checking contain .menu-hidden class.', function() {
       // const menuEl = document.getElementsByClassName('menu-icon-link')[0];
       // const bodyEl = document.querySelector('body');
       $('.menu-icon-link').trigger('click');
       expect($('body').hasClass('menu-hidden')).toBe(false);
       $('.menu-icon-link').trigger('click');
       expect($('body').hasClass('menu-hidden')).toBe(true);
+    });
+
+    it('Checking toggle on menu through spies function', function() {
+      // const menuEl = document.getElementsByClassName('menu-icon-link')[0];
+      // const bodyEl = document.querySelector('body');
+      feedList = $('.feed-list');
+      spyOn(feedList, 'on');
+      feedList.trigger('click');
+      expect(feedList.On).toHaveBeenCalled();
     });
   });
 
