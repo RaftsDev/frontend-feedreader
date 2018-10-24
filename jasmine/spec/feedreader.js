@@ -32,15 +32,9 @@ $(function() {
          * and that the URL is not empty.
          */
     it('All elements in allFeeds array have URL', function() {
-      urlContext= true;
-      /** Check all elements in loop.
-           *   if even one url propeties in elements not defined or empty
-           *   variable urlContext turn to false **/
       for (let i = 0; i < allFeeds.length; i++) {
-        if (!allFeeds[i].url) {
-          urlContext = false;
-        }
-        expect(urlContext).toBe(true);
+        expect(allFeeds[i].url).toBeDefined();
+        expect(allFeeds[i].url.length).not.toBe(0);
       }
     });
 
@@ -51,16 +45,9 @@ $(function() {
          */
 
     it('All elements in allFeeds array have Name', function() {
-      let nameContext= true;
-      /** Check all elements in loop.
-           *   if even one name properties in elements not defined or empty
-           *   variable nameContext turn to false **/
-
       for (let i = 0; i < allFeeds.length; i++) {
-        if (!allFeeds[i].name) {
-          nameContext = false;
-        }
-        expect(nameContext).toBe(true);
+        expect(allFeeds[i].name).toBeDefined();
+        expect(allFeeds[i].name.length).not.toBe(0);
       }
     });
   });
@@ -85,24 +72,14 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-    it('Checking toggle on menu through checking contain .menu-hidden class.', function() {
-      // const menuEl = document.getElementsByClassName('menu-icon-link')[0];
-      // const bodyEl = document.querySelector('body');
+    it('Checking click event', function() {
       $('.menu-icon-link').trigger('click');
       expect($('body').hasClass('menu-hidden')).toBe(false);
       $('.menu-icon-link').trigger('click');
       expect($('body').hasClass('menu-hidden')).toBe(true);
     });
-
-    it('Checking toggle on menu through spies function', function() {
-      // const menuEl = document.getElementsByClassName('menu-icon-link')[0];
-      // const bodyEl = document.querySelector('body');
-      feedList = $('.feed-list');
-      spyOn(feedList, 'on');
-      feedList.trigger('click');
-      expect(feedList.On).toHaveBeenCalled();
-    });
   });
+
 
   /* TODO: Write a new test suite named "Initial Entries" */
 
