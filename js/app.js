@@ -67,6 +67,8 @@ function init() {
                   */
                  entries.forEach(function(entry) {
                      container.append(entryTemplate(entry));
+                     // let feed = document.getElementsByClassName('feed')[0];
+                     // console.log('feed0='+feed.innerText);
                  });
 
                  if (cb) {

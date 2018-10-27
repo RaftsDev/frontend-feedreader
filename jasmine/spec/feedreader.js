@@ -107,20 +107,24 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+         var feedEl = document.getElementsByClassName('feed')[0];
+         var feed0,feed1;
+
       beforeEach(function(done){
         $('.feed').empty();
-        loadFeed(0, function(done){
-          done();
-          let feed0 = $('.feed').innerText;
-        });
-        loadFeed(1, function(done){
-          done();
-          let feed1 = $('.feed').innerText;
-        });
-
-        it('Have to be different content in different feed', function(){
-          expect(feed1==feed0).not.toBe(true);
+        loadFeed(0, function(){
+          feed0 = feedEl.innerText;
+          loadFeed(1, function(){
+            feed1 = feedEl.innerText;
+            done();
+          });
         });
       });
+
+        it('Have to be different content in different feed', function(){
+          expect(feed0).toBeDefined();
+          expect(feed1).toBeDefined();
+          expect(feed1==feed0).not.toBeTruthy();
+        });
   });
 }());
