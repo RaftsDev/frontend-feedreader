@@ -90,13 +90,16 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+         var feedEl = document.getElementsByClassName('feed')[0];
+         var len;
          beforeEach(function(done){
            loadFeed(0,function(){
+             len = feedEl.childElementCount;
              done();
            });
          });
          it('Check elements is exist in entries', function(){
-           expect($('.feed .entry')).toBeDefined();
+           expect(len).toBeGreaterThan(0);
          })
   });
 
@@ -111,7 +114,6 @@ $(function() {
          var feed0,feed1;
 
       beforeEach(function(done){
-        $('.feed').empty();
         loadFeed(0, function(){
           feed0 = feedEl.innerText;
           loadFeed(1, function(){
