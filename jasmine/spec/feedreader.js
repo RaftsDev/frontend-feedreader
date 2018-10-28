@@ -73,9 +73,11 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
     it('Checking click event', function() {
-      $('.menu-icon-link').trigger('click');
+      $('.menu-icon-link').trigger('click'); // click to menu
+      // checking menu is not hidden
       expect($('body').hasClass('menu-hidden')).toBe(false);
-      $('.menu-icon-link').trigger('click');
+      $('.menu-icon-link').trigger('click'); // click again
+      // checking  menu is hidden
       expect($('body').hasClass('menu-hidden')).toBe(true);
     });
   });
@@ -94,13 +96,14 @@ $(function() {
     var len;
     beforeEach(function(done) {
       loadFeed(0, function() {
+        // get collection of entries elements in feed container
         feedEl = document.querySelectorAll('.feed .entry');
-        len = feedEl.length;
+        len = feedEl.length; // get number of entries elements
         done();
       });
     });
     it('Check elements is exist in entries', function() {
-      expect(feedEl).toBeDefined();
+      // checking that entries elements at least single
       expect(len).toBeGreaterThan(0);
     });
   });
@@ -118,10 +121,10 @@ $(function() {
 
     beforeEach(function(done) {
       loadFeed(0, function() {
-        feed0 = feedEl.innerText;
+        feed0 = feedEl.innerText; // get content of feed
         loadFeed(1, function() {
-          feed1 = feedEl.innerText;
-          done();
+          feed1 = feedEl.innerText; // get content of feed
+          done(); // starts spec
         });
       });
     });
@@ -129,6 +132,7 @@ $(function() {
     it('Have to be different content in different feed', function() {
       expect(feed0).toBeDefined();
       expect(feed1).toBeDefined();
+      // checking that content is different
       expect(feed1==feed0).not.toBeTruthy();
     });
   });
