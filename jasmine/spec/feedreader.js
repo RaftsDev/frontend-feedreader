@@ -90,15 +90,16 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-         var feedEl = document.getElementsByClassName('feed')[0];
-         var len;
+         var feedEl,len;
          beforeEach(function(done){
            loadFeed(0,function(){
-             len = feedEl.childElementCount;
+             feedEl = document.querySelectorAll('.feed .entry');
+             len = feedEl.length;
              done();
            });
          });
          it('Check elements is exist in entries', function(){
+           expect(feedEl).toBeDefined();
            expect(len).toBeGreaterThan(0);
          })
   });
