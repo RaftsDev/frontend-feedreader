@@ -6,6 +6,8 @@
 
 Test run automatically when run application [index.html](https://github.com/kubr2017/frontend-feedreader)
 
+Results in bottom of page.
+
 
 Whole project located in [github repo](https://github.com/kubr2017/frontend-feedreader).
 
