@@ -95,7 +95,7 @@ $(function() {
     beforeEach(function(done) {
       loadFeed(0, function() {
         feedEl = document.querySelectorAll('.feed .entry');
-        feedEl.length;
+        len = feedEl.length;
         done();
       });
     });
