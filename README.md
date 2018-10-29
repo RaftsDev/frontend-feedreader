@@ -4,8 +4,8 @@
 
 ## How will I run tests ?
 
-1. Download github [repo](https://github.com/kubr2017/frontend-feedreader).
-2. Launch file `index.html`.
+1. Download or clone github [repo](https://github.com/kubr2017/frontend-feedreader).
+2. Launch file `index.html` in root folder of repo.
 
 Test run automatically when run application [index.html](https://github.com/kubr2017/frontend-feedreader)
 
